@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jason Chen - Under construction since 2010</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -218,14 +219,42 @@
 			90%  { transform: translate(2px, 3px) rotate(0deg); }
 			100% { transform: translate(0px, 0px) rotate(-1deg); }
 		}
+
+		@media (max-width: 768px) {
+			:root {
+				--cell-size: 10px;
+			}
+
+			.logo-container,
+			nav {
+				left: 50%;
+				top: 0;
+			}
+			.logo-container {
+				transform: translate(-50%, calc(var(--cell-size)*5));
+			}
+			nav {
+				transform: translate(-50%,var(--cell-size));
+				display: flex;
+				flex-direction: row;
+				text-align: center;
+				gap: var(--cell-size);
+			}
+			section {
+				justify-content: center;
+			}
+			section .content {
+				width: 100%;
+			}
+		}
 	</style>
 </head>
 <body>
 	<header>
-		<div class="logo-container">
+		<div class="logo-container" role="img" aria-label="jsnchn logo">
 			<div class="logo">
 				<!-- j -->
-				<div class="letter j">
+				<div class="letter j" aria-hidden="true">
 					<div class="left">
 						<div></div>
 					</div>
@@ -234,7 +263,7 @@
 					</div>
 				</div>
 				<!-- s -->
-				<div class="letter s">
+				<div class="letter s" aria-hidden="true">
 					<div class="left">
 						<div></div>
 						<div></div>
@@ -245,7 +274,7 @@
 					</div>
 				</div>
 				<!-- n -->
-				<div class="letter n">
+				<div class="letter n" aria-hidden="true">
 					<div class="left">
 						<div></div>
 					</div>
@@ -254,7 +283,7 @@
 					</div>
 				</div>
 				<!-- c -->
-				<div class="letter c">
+				<div class="letter c" aria-hidden="true">
 					<div class="left">
 						<div></div>
 					</div>
@@ -264,7 +293,7 @@
 					</div>
 				</div>
 				<!-- h -->
-				<div class="letter h">
+				<div class="letter h" aria-hidden="true">
 					<div class="left">
 						<div></div>
 					</div>
@@ -273,7 +302,7 @@
 					</div>
 				</div>
 				<!-- n -->
-				<div class="letter n">
+				<div class="letter n" aria-hidden="true">
 					<div class="left">
 						<div></div>
 					</div>
@@ -289,38 +318,38 @@
 		</nav> -->
 	</header>
 	<main>
-		<section>
+		<section aria-labelledby="intro">
 			<div class="content">
-				<p>My name is Jason Chen</p>
+				<p id="intro">My name is Jason Chen</p>
 			</div>
 		</section>
-		<section>
+		<section aria-labelledby="code">
 			<div class="content">
-				<p>I write code</p>
-				<a href="https://github.com/jsnchn" target="_blank"><span class="icon github"></span></a>
-				<a href="https://codepen.io/jsnchn" target="_blank"><span class="icon codepen"></span></a>
+				<p id="code">I write code</p>
+				<a href="https://github.com/jsnchn" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><span class="icon github" aria-hidden="true"></span></a>
+				<a href="https://codepen.io/jsnchn" target="_blank" rel="noopener noreferrer" aria-label="CodePen profile"><span class="icon codepen" aria-hidden="true"></span></a>
 			</div>
 		</section>
-		<section>
+		<section aria-labelledby="trestle">
 			<div class="content">
-				<p>Co-Founder @ <a href="https://www.gotrestle.com/" target="_blank">Trestle</a></p>
+				<p id="trestle">Co-Founder @ <a href="https://www.gotrestle.com/" target="_blank" rel="noopener noreferrer">Trestle</a></p>
 			</div>
 		</section>
-		<section>
+		<section aria-labelledby="webteam">
 			<div class="content">
-				<p>One half of <a href="https://theweb.team" target="_blank">The Web Team</a></p>
+				<p id="webteam">One half of <a href="https://theweb.team" target="_blank" rel="noopener noreferrer">The Web Team</a></p>
 			</div>
 		</section>
-		<section>
+		<section aria-labelledby="email">
 			<div class="content">
-				<a href="mailto:fine.you.can.email.me@jsnchn.com">do.not.email.me@jsnchn.com</a>
+				<a href="mailto:fine.you.can.email.me@jsnchn.com" id="email">do.not.email.me@jsnchn.com</a>
 			</div>
 		</section>
-		<section>
+		<section aria-labelledby="connect">
 			<div class="content">
-				<p>Connect with me</p>
-				<a href="https://x.com/jsnchn_" target="_blank"><span class="icon twitter"></span></a>
-				<a href="https://www.linkedin.com/in/jsnchn/" target="_blank"><span class="icon linkedin"></span></a>
+				<p id="connect">Connect with me</p>
+				<a href="https://x.com/jsnchn_" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) profile"><span class="icon twitter" aria-hidden="true"></span></a>
+				<a href="https://www.linkedin.com/in/jsnchn/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><span class="icon linkedin" aria-hidden="true"></span></a>
 			</div>
 		</section>
 	</main>
