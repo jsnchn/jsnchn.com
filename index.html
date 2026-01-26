@@ -234,24 +234,6 @@
 		}
 		dialog::backdrop {
 			background: rgba(0, 0, 0, 0.5);
-			animation: fadeIn 0.2s ease-out;
-		}
-		dialog[open] {
-			animation: modalOpen 0.3s ease-out;
-		}
-		@keyframes fadeIn {
-			from { opacity: 0; }
-			to { opacity: 1; }
-		}
-		@keyframes modalOpen {
-			from {
-				opacity: 0;
-				transform: scale(0.95) translateY(-10px);
-			}
-			to {
-				opacity: 1;
-				transform: scale(1) translateY(0);
-			}
 		}
 		dialog h2 {
 			margin: 0 0 1rem 0;
@@ -379,7 +361,7 @@
 	<dialog id="about-modal">
 		<form method="dialog">
 			<h2>About</h2>
-			<p>I'm Jason Chen, a software engineer and entrepreneur. I build things for the web and co-founded Trestle. I believe in clean code, thoughtful design, and the relentless pursuit of simplicity.</p>
+			<p><i>This is a work in progress...</i></p>
 			<button value="close">Close</button>
 		</form>
 	</dialog>
