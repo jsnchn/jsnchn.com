@@ -241,6 +241,24 @@
 			text-transform: uppercase;
 			letter-spacing: 2px;
 		}
+		dialog h3 {
+			margin: 1.5rem 0 0.5rem 0;
+			font-size: 1rem;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+		dialog h3:first-child {
+			margin-top: 0;
+		}
+		dialog ul {
+			margin: 0 0 1rem 0;
+			padding-left: 1.5rem;
+		}
+		dialog li {
+			margin: 0 0 0.25rem 0;
+			line-height: 1.5;
+			font-size: 0.9rem;
+		}
 		dialog p {
 			margin: 0 0 1.5rem 0;
 			line-height: 1.6;
@@ -358,6 +376,7 @@
 		<nav aria-label="Main Navigation">
 			<a class="shake" href="#" onclick="document.getElementById('about-modal').showModal(); return false;">About</a>
 			<a class="shake" href="#" onclick="document.getElementById('coming-soon-modal').showModal(); return false;">Blog</a>
+			<a class="shake" href="#" onclick="document.getElementById('tools-modal').showModal(); return false;">Tools</a>
 		</nav>
 	</header>
 	<dialog id="about-modal">
@@ -370,6 +389,33 @@
 		<form method="dialog">
 			<h2>Coming Soon</h2>
 			<p>coming soon</p>
+			<button value="close">Close</button>
+		</form>
+	</dialog>
+	<dialog id="tools-modal">
+		<form method="dialog">
+			<h2>Recommendations</h2>
+			<h3>Favored</h3>
+			<ul>
+				<li><a href="https://www.sublimetext.com/" target="_blank" rel="noopener noreferrer">sublime text</a> - super reliable text editor for code, markup and prose</li>
+				<li><a href="https://ffmpeg.org/" target="_blank" rel="noopener noreferrer">ffmpeg</a> - complete cross-platform solution to record, convert, and stream audio and video</li>
+				<li><a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer">blender</a> - free and open source 3D creation suite</li>
+				<li><a href="https://www.jetbrains.com/idea/" target="_blank" rel="noopener noreferrer">IntelliJ</a> - the most capable and ergonomic IDE</li>
+				<li><a href="https://tmux.github.io/" target="_blank" rel="noopener noreferrer">tmux</a> - terminal multiplexer</li>
+				<li><a href="https://orbstack.dev/" target="_blank" rel="noopener noreferrer">orbstack</a> - fast, clean, and easy way to run containers and VMs</li>
+				<li><a href="https://tailscale.com/" target="_blank" rel="noopener noreferrer">tailscale</a> - the most convenient and secure network mesh</li>
+				<li><a href="https://wezfurlong.org/wezterm/" target="_blank" rel="noopener noreferrer">wezterm</a> - GPU-accelerated cross-platform terminal emulator</li>
+				<li><a href="https://github.com/jesseduffield/lazygit/" target="_blank" rel="noopener noreferrer">lazygit</a> - simple terminal UI for git commands</li>
+				<li><a href="https://obsproject.com/" target="_blank" rel="noopener noreferrer">OBS</a> - free and open source software for video recording and live streaming</li>
+				<li><a href="https://magnetapp.com/" target="_blank" rel="noopener noreferrer">magnet</a> - window tiler for macOS</li>
+				<li><a href="https://www.hammerspoon.org/" target="_blank" rel="noopener noreferrer">hammerspoon</a> - powerful automation for macOS</li>
+				<li><a href="https://hhkeyboard.com/products/professional-hybrid-type-s/" target="_blank" rel="noopener noreferrer">HHKB Professional Hybrid Type-S</a> - the mechanical keyboard with the best layout</li>
+			</ul>
+			<h3>Avoid</h3>
+			<ul>
+				<li><a href="https://www.notion.so/" target="_blank" rel="noopener noreferrer">notion</a> - over-engineered wiki with the worst editing experience</li>
+				<li><a href="https://slack.com/" target="_blank" rel="noopener noreferrer">slack</a> - bloated messaging platform with the most disorganized UX</li>
+			</ul>
 			<button value="close">Close</button>
 		</form>
 	</dialog>
