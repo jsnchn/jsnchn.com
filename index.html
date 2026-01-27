@@ -28,17 +28,13 @@
 			display: inline-block;
 			text-decoration: none;
 			color: black;
+			text-shadow: 2px 2px 0px #9C7A1A;
 		}
 		a:hover {
 			animation: shake 0.3s infinite ease-in-out;
 		}
 		a:before {
-			content: '';
-			position: absolute;
-			width: 100%;
-			height: 3px;
-			top: 100%;
-			background: black;
+			display: none;
 		}
 
 		main {
@@ -138,9 +134,10 @@
 
 		main section:nth-child(even) a {
 			color: white;
+			text-shadow: 2px 2px 0px #9C7A1A;
 		}
 		main section:nth-child(even) a:before {
-			background: white;
+			display: none;
 		}
 
 		main section:nth-of-type(even) .logo .letter .left > div,
@@ -184,10 +181,11 @@
 		}
 		nav a {
 			color: white;
+			text-shadow: 2px 2px 0px #9C7A1A;
 			font-size: calc((var(--cell-size) + 0.5rem) * 0.6);
 		}
 		nav a:before {
-			background: white;
+			display: none;
 		}
 
 		.icon {
@@ -258,8 +256,6 @@
 			margin: 0 0 0.25rem 0;
 			line-height: 1.5;
 			font-size: 0.9rem;
-			display: inline-block;
-			width: auto;
 		}
 		dialog li a {
 			display: block;
