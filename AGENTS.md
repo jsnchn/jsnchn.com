@@ -16,8 +16,7 @@
 - Commit directly to main; skip pull requests.
 - Only create branches when explicitly requested or for work tree style agentic workflows.
 
-## Code Style
+## Project-Specific
 
-- Prefer bare bones implementation using basic HTML, CSS, and JavaScript.
-- Minimize number of files; consolidate HTML, CSS, and JS where practical.
-- Do not add comments unless explicitly requested.
+- Always develop against static files.
+- Follow GitHub Pages deployment conventions for file organization.
