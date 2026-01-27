@@ -9,3 +9,9 @@
 - Ask for clarification when instructions are ambiguous.
 - Proceed with reasonable assumptions when details are missing but task is clear.
 - Only ask for approval before actions that are irreversible or high-impact (e.g., force pushes, destructive operations, installing packages, adding third-party integrations).
+
+## Code Style
+
+- Prefer bare bones implementation using basic HTML, CSS, and JavaScript.
+- Minimize number of files; consolidate HTML, CSS, and JS where practical.
+- Do not add comments unless explicitly requested.
