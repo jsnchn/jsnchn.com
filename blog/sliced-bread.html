@@ -81,6 +81,16 @@
 			z-index: 1000;
 			left: 25%;
 			top: 50%;
+			transform: translate(-50%, calc(-100% - var(--cell-size)));
+			mix-blend-mode: difference;
+		}
+
+		.back-link {
+			position: fixed;
+			z-index: 1000;
+			left: 25%;
+			top: 50%;
+			transform: translate(-50%, var(--cell-size));
 			mix-blend-mode: difference;
 		}
 
@@ -167,14 +177,6 @@
 			margin-top: var(--cell-size);
 		}
 
-		.back-link {
-			position: fixed;
-			left: 25%;
-			top: 50%;
-			transform: translateY(calc(var(--cell-size) * 2));
-			mix-blend-mode: difference;
-		}
-
 		h1 {
 			font-size: 2rem;
 			margin: 0 0 1rem 0;
@@ -219,7 +221,11 @@
 			.back-link {
 				left: 50%;
 				top: 0;
-				transform: translate(-50%, calc(var(--cell-size)*6));
+				transform: translate(-50%, var(--cell-size));
+				display: flex;
+				flex-direction: row;
+				text-align: center;
+				gap: var(--cell-size);
 			}
 
 			section {
