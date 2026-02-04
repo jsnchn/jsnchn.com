@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sleep: The Ultimate Productivity Hack - Jason Chen</title>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--cell-size: 20px;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--bg-color: black;
+				--text-color: white;
+			}
+		}
+
+		@media (prefers-color-scheme: light) {
+			:root {
+				--bg-color: white;
+				--text-color: black;
+			}
+		}
+
+		body {
+			margin: 0;
+			background: var(--bg-color);
+			color: var(--text-color);
+			font-family: "Share Tech Mono", monospace;
+			font-weight: 400;
+			font-style: normal;
+			font-size: calc(var(--cell-size) + 0.5rem);
+		}
+
+		a {
+			position: relative;
+			display: inline-block;
+			text-decoration: none;
+			border-bottom: 2px solid currentColor;
+			color: var(--text-color);
+		}
+		a:hover {
+			animation: shake 0.3s infinite ease-in-out;
+		}
+		a:before {
+			display: none;
+		}
+
+		main {
+			position: relative;
+			display: block;
+			width: 100%;
+			padding-top: calc(var(--cell-size) * 8);
+		}
+
+		section {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			width: 100%;
+			min-height: 50vh;
+			box-sizing: border-box;
+			padding-right: 10%;
+			padding-bottom: 4rem;
+		}
+
+		section .content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			max-width: 600px;
+		}
+
+		.logo-container {
+			position: fixed;
+			z-index: 1000;
+			left: 25%;
+			top: 50%;
+			mix-blend-mode: difference;
+		}
+
+		.logo {
+			display: flex;
+			flex-direction: row;
+			gap: var(--cell-size);
+		}
+
+		.logo .letter {
+			width: calc(var(--cell-size) * 3);
+			height: calc(var(--cell-size) * 6);
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		.logo .letter .left,
+		.logo .letter .right {
+			width: var(--cell-size);
+			height: 100%;
+		}
+
+		.logo .letter .left > div,
+		.logo .letter .right > div {
+			width: 100%;
+			background: white;
+		}
+
+		.logo .letter.j .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 2);
+			margin-top: calc(var(--cell-size) * 4);
+		}
+		.logo .letter.j .right > div:nth-child(1) {
+			height: calc(var(--cell-size) * 5);
+			margin-top: var(--cell-size);
+		}
+
+		.logo .letter.c .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 4);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.c .right > div:nth-child(1) {
+			height: var(--cell-size);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.c .right > div:nth-child(2) {
+			height: var(--cell-size);
+			margin-top: calc(var(--cell-size) * 2);
+		}
+
+		.logo .letter.h .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 5);
+			margin-top: 0;
+		}
+		.logo .letter.h .right > div:nth-child(1) {
+			height: calc(var(--cell-size) * 3);
+			margin-top: calc(var(--cell-size) * 2);
+		}
+
+		.logo .letter.n .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 4);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.n .right > div:nth-child(1) {
+			height: calc(var(--cell-size) * 3);
+			margin-top: calc(var(--cell-size) * 2);
+		}
+
+		.logo .letter.s .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 2);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.s .left > div:nth-child(2) {
+			height: var(--cell-size);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.s .right > div:nth-child(1) {
+			height: var(--cell-size);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.s .right > div:nth-child(2) {
+			height: calc(var(--cell-size) * 2);
+			margin-top: var(--cell-size);
+		}
+
+		.back-link {
+			position: fixed;
+			left: 25%;
+			top: 50%;
+			transform: translateY(calc(var(--cell-size) * 2));
+			mix-blend-mode: difference;
+		}
+
+		h1 {
+			font-size: 2rem;
+			margin: 0 0 1rem 0;
+		}
+
+		.date {
+			font-size: 0.8rem;
+			opacity: 0.7;
+			margin-bottom: 2rem;
+		}
+
+		p {
+			line-height: 1.6;
+			margin-bottom: 1.5rem;
+		}
+
+		@keyframes shake {
+			0%   { transform: translate(1px, 1px) rotate(0deg); }
+			10%  { transform: translate(-2px, -3px) rotate(-1deg); }
+			20%  { transform: translate(-3px, 2px) rotate(1deg); }
+			30%  { transform: translate(3px, -1px) rotate(0deg); }
+			40%  { transform: translate(1px, 3px) rotate(1deg); }
+			50%  { transform: translate(-1px, -2px) rotate(-1deg); }
+			60%  { transform: translate(-3px, 1px) rotate(0deg); }
+			70%  { transform: translate(3px, 1px) rotate(-1deg); }
+			80%  { transform: translate(-1px, -3px) rotate(-1deg); }
+			90%  { transform: translate(2px, 3px) rotate(0deg); }
+			100% { transform: translate(0px, 0px) rotate(-1deg); }
+		}
+
+		@media (max-width: 768px) {
+			:root {
+				--cell-size: 10px;
+			}
+
+			.logo-container {
+				left: 50%;
+				top: 0;
+				transform: translate(-50%, calc(var(--cell-size)*5));
+			}
+
+			.back-link {
+				left: 50%;
+				top: 0;
+				transform: translate(-50%, calc(var(--cell-size)*6));
+			}
+
+			section {
+				justify-content: center;
+				padding: 2rem;
+			}
+
+			section .content {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="logo-container" role="img" aria-label="jsnchn logo">
+		<div class="logo">
+			<div class="letter j" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+			<div class="letter s" aria-hidden="true">
+				<div class="left"><div></div><div></div></div>
+				<div class="right"><div></div><div></div></div>
+			</div>
+			<div class="letter n" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+			<div class="letter c" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div><div></div></div>
+			</div>
+			<div class="letter h" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+			<div class="letter n" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+		</div>
+	</div>
+
+	<a href="/blog/" class="back-link">← Blog</a>
+
+	<main>
+		<section>
+			<div class="content">
+				<h1>Sleep: The Ultimate Productivity Hack</h1>
+				<p class="date">February 2026</p>
+
+				<p>Somewhere along the line, we decided that sleep is for the weak. That success belongs to those who wake up at 4 AM, who hustle harder, who need less. We've romanticized exhaustion into a badge of honor. And it's making us worse at everything we do.</p>
+
+				<p>Here's a radical idea: what if the most productive thing you could do today is take a nap? What if those eight hours of sleep you keep cutting short are actually when your brain does its most important work?</p>
+
+				<p>During sleep, your brain processes what you've learned, consolidates memories, and clears out toxic waste products. It's not downtime—it's maintenance mode. Skipping sleep doesn't give you more productive hours. It gives you worse productive hours. Every hour of sleep you sacrifice today is an hour of diminished returns tomorrow.</p>
+
+				<p>The research is overwhelming. Chronic sleep deprivation impairs creativity, decision-making, and emotional regulation. It literally shrinks your brain. And yet we celebrate pulling all-nighters like they're heroic feats. They're not. They're self-sabotage dressed up as dedication.</p>
+
+				<p>I'm not saying you need eight hours every night. I'm saying you should stop treating sleep as the enemy. The most productive people I know aren't the ones running on fumes. They're the ones who protect their sleep like a sacred ritual because they understand the truth: you can't pour from an empty cup, and you definitely can't think from a sleep-deprived brain.</p>
+
+				<p>Sleep is not a luxury. It's infrastructure. And it's time we started treating it that way.</p>
+
+				<p><a href="/blog/">← Back to all thoughts</a></p>
+			</div>
+		</section>
+	</main>
+</body>
+</html>
