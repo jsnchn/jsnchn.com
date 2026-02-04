@@ -44,7 +44,7 @@
 			border-bottom: 2px solid currentColor;
 			color: var(--text-color);
 		}
-		a:hover {
+		a:hover .shake {
 			animation: shake 0.3s infinite ease-in-out;
 		}
 		a:before {
@@ -76,22 +76,19 @@
 			max-width: 600px;
 		}
 
-		.logo-container {
-			position: fixed;
-			z-index: 1000;
-			left: 25%;
-			top: 50%;
-			transform: translate(-50%, calc(-100% - var(--cell-size)));
-			mix-blend-mode: difference;
-		}
-
+		.logo-container,
 		.back-link {
 			position: fixed;
 			z-index: 1000;
 			left: 25%;
 			top: 50%;
-			transform: translate(-50%, var(--cell-size));
 			mix-blend-mode: difference;
+		}
+		.logo-container {
+			transform: translate(-50%, calc(-100% - var(--cell-size)));
+		}
+		.back-link {
+			transform: translate(-50%, var(--cell-size));
 		}
 
 		.logo {
@@ -212,20 +209,18 @@
 				--cell-size: 10px;
 			}
 
-			.logo-container {
+			.logo-container,
+			.back-link {
 				left: 50%;
 				top: 0;
+			}
+
+			.logo-container {
 				transform: translate(-50%, calc(var(--cell-size)*5));
 			}
 
 			.back-link {
-				left: 50%;
-				top: 0;
 				transform: translate(-50%, var(--cell-size));
-				display: flex;
-				flex-direction: row;
-				text-align: center;
-				gap: var(--cell-size);
 			}
 
 			section {
@@ -269,7 +264,7 @@
 		</div>
 	</div>
 
-	<a href="/blog/" class="back-link">← Blog</a>
+	<a href="/blog/" class="back-link"><span class="shake">← Blog</span></a>
 
 	<main>
 		<section>
