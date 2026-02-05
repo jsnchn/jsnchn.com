@@ -44,7 +44,7 @@
 			border-bottom: 2px solid currentColor;
 			color: var(--text-color);
 		}
-		a:hover .shake {
+		a:hover {
 			animation: shake 0.3s infinite ease-in-out;
 		}
 		a:before {
@@ -75,19 +75,22 @@
 			gap: 1rem;
 		}
 
-		.logo-container,
+		.logo-container {
+			position: fixed;
+			z-index: 1000;
+			left: 25%;
+			top: 50%;
+			transform: translate(-50%, calc(-100% - var(--cell-size)));
+			mix-blend-mode: difference;
+		}
+
 		.back-link {
 			position: fixed;
 			z-index: 1000;
 			left: 25%;
 			top: 50%;
-			mix-blend-mode: difference;
-		}
-		.logo-container {
-			transform: translate(-50%, calc(-100% - var(--cell-size)));
-		}
-		.back-link {
 			transform: translate(-50%, var(--cell-size));
+			mix-blend-mode: difference;
 		}
 
 		.logo {
@@ -212,18 +215,20 @@
 				--cell-size: 10px;
 			}
 
-			.logo-container,
-			.back-link {
+			.logo-container {
 				left: 50%;
 				top: 0;
-			}
-
-			.logo-container {
 				transform: translate(-50%, calc(var(--cell-size)*5));
 			}
 
 			.back-link {
+				left: 50%;
+				top: 0;
 				transform: translate(-50%, var(--cell-size));
+				display: flex;
+				flex-direction: row;
+				text-align: center;
+				gap: var(--cell-size);
 			}
 
 			section {
@@ -267,7 +272,7 @@
 		</div>
 	</div>
 
-	<a href="/" class="back-link"><span class="shake">← Home</span></a>
+	<a href="/" class="back-link">← Home</a>
 
 	<main>
 		<section aria-labelledby="blog-heading">
