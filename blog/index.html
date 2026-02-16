@@ -44,12 +44,12 @@
 		.breadcrumb .logo {
 			display: flex;
 			flex-direction: row;
-			gap: 4px;
+			gap: var(--cell-size);
 		}
 
 		.breadcrumb .logo .letter {
-			width: 6px;
-			height: 12px;
+			width: calc(var(--cell-size) * 3);
+			height: calc(var(--cell-size) * 6);
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
@@ -57,7 +57,7 @@
 
 		.breadcrumb .logo .letter .left,
 		.breadcrumb .logo .letter .right {
-			width: 3px;
+			width: var(--cell-size);
 			height: 100%;
 		}
 
@@ -67,23 +67,62 @@
 			background: currentColor;
 		}
 
-		.breadcrumb .logo .letter.j .left > div:nth-child(1) { height: 40%; margin-top: 80%; }
-		.breadcrumb .logo .letter.j .right > div:nth-child(1) { height: 100%; margin-top: 20%; }
+		.breadcrumb .logo .letter.j .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 2);
+			margin-top: calc(var(--cell-size) * 4);
+		}
+		.breadcrumb .logo .letter.j .right > div:nth-child(1) {
+			height: calc(var(--cell-size) * 5);
+			margin-top: var(--cell-size);
+		}
 
-		.breadcrumb .logo .letter.s .left > div:nth-child(1) { height: 40%; margin-top: 20%; }
-		.breadcrumb .logo .letter.s .left > div:nth-child(2) { height: 20%; margin-top: 20%; }
-		.breadcrumb .logo .letter.s .right > div:nth-child(1) { height: 20%; margin-top: 20%; }
-		.breadcrumb .logo .letter.s .right > div:nth-child(2) { height: 40%; margin-top: 20%; }
+		.breadcrumb .logo .letter.c .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 4);
+			margin-top: var(--cell-size);
+		}
+		.breadcrumb .logo .letter.c .right > div:nth-child(1) {
+			height: var(--cell-size);
+			margin-top: var(--cell-size);
+		}
+		.breadcrumb .logo .letter.c .right > div:nth-child(2) {
+			height: var(--cell-size);
+			margin-top: calc(var(--cell-size) * 2);
+		}
 
-		.breadcrumb .logo .letter.n .left > div:nth-child(1) { height: 80%; margin-top: 20%; }
-		.breadcrumb .logo .letter.n .right > div:nth-child(1) { height: 60%; margin-top: 40%; }
+		.breadcrumb .logo .letter.h .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 5);
+			margin-top: 0;
+		}
+		.breadcrumb .logo .letter.h .right > div:nth-child(1) {
+			height: calc(var(--cell-size) * 3);
+			margin-top: calc(var(--cell-size) * 2);
+		}
 
-		.breadcrumb .logo .letter.c .left > div:nth-child(1) { height: 80%; margin-top: 20%; }
-		.breadcrumb .logo .letter.c .right > div:nth-child(1) { height: 20%; margin-top: 20%; }
-		.breadcrumb .logo .letter.c .right > div:nth-child(2) { height: 20%; margin-top: 40%; }
+		.breadcrumb .logo .letter.n .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 4);
+			margin-top: var(--cell-size);
+		}
+		.breadcrumb .logo .letter.n .right > div:nth-child(1) {
+			height: calc(var(--cell-size) * 3);
+			margin-top: calc(var(--cell-size) * 2);
+		}
 
-		.breadcrumb .logo .letter.h .left > div:nth-child(1) { height: 100%; margin-top: 0; }
-		.breadcrumb .logo .letter.h .right > div:nth-child(1) { height: 60%; margin-top: 40%; }
+		.breadcrumb .logo .letter.s .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 2);
+			margin-top: var(--cell-size);
+		}
+		.breadcrumb .logo .letter.s .left > div:nth-child(2) {
+			height: var(--cell-size);
+			margin-top: var(--cell-size);
+		}
+		.breadcrumb .logo .letter.s .right > div:nth-child(1) {
+			height: var(--cell-size);
+			margin-top: var(--cell-size);
+		}
+		.breadcrumb .logo .letter.s .right > div:nth-child(2) {
+			height: calc(var(--cell-size) * 2);
+			margin-top: var(--cell-size);
+		}
 
 		.breadcrumb .separator {
 			opacity: 0.5;
@@ -168,7 +207,7 @@
 			</div>
 		</a>
 		<span class="separator">/</span>
-		<span>blog</span>
+		<span>Blog</span>
 	</nav>
 
 	<main>
