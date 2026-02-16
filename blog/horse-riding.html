@@ -19,14 +19,22 @@
 		}
 
 		.breadcrumb {
-			position: fixed;
-			top: var(--cell-size);
-			left: var(--cell-size);
+			position: sticky;
+			top: 0;
+			left: 0;
+			right: 0;
 			z-index: 1000;
 			display: flex;
 			align-items: center;
 			gap: 0.5rem;
 			font-size: 0.9rem;
+			padding: var(--cell-size);
+			background: white;
+			color: black;
+		}
+
+		.breadcrumb a {
+			color: black;
 		}
 
 		.breadcrumb .logo-link {
@@ -83,7 +91,8 @@
 
 		.content {
 			max-width: 680px;
-			margin: calc(var(--cell-size) * 6) auto 0;
+			margin: 0 auto;
+			padding: var(--cell-size);
 		}
 
 		h1 {
@@ -109,11 +118,11 @@
 
 		@media (max-width: 768px) {
 			main {
-				padding: var(--cell-size);
+				padding: 0;
 			}
 
 			.content {
-				margin-top: calc(var(--cell-size) * 4);
+				padding: var(--cell-size);
 			}
 		}
 	</style>
