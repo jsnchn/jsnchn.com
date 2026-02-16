@@ -14,159 +14,176 @@
 			position: relative;
 			display: block;
 			width: 100%;
-			padding-top: calc(var(--cell-size) * 8);
+			padding: calc(var(--cell-size) * 2) var(--cell-size);
+			box-sizing: border-box;
 		}
 
-		section {
+		.breadcrumb {
+			position: fixed;
+			top: var(--cell-size);
+			left: var(--cell-size);
+			z-index: 1000;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			font-size: 0.9rem;
+		}
+
+		.breadcrumb .logo-link {
+			display: flex;
+		}
+
+		.breadcrumb .logo {
 			display: flex;
 			flex-direction: row;
-			justify-content: flex-end;
-			width: 100%;
-			min-height: 50vh;
-			box-sizing: border-box;
-			padding-right: 10%;
+			gap: 4px;
 		}
 
-		section .content {
+		.breadcrumb .logo .letter {
+			width: 6px;
+			height: 12px;
 			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			gap: 1rem;
+			flex-direction: row;
+			justify-content: space-between;
 		}
 
-		.logo-container {
-			position: fixed;
-			z-index: 1000;
-			left: 25%;
-			top: 50%;
-			transform: translate(-50%, calc(-100% - var(--cell-size)));
-			mix-blend-mode: difference;
+		.breadcrumb .logo .letter .left,
+		.breadcrumb .logo .letter .right {
+			width: 3px;
+			height: 100%;
 		}
 
-		.back-link {
-			position: fixed;
-			z-index: 1000;
-			left: 25%;
-			top: 50%;
-			transform: translate(-50%, var(--cell-size));
-			mix-blend-mode: difference;
+		.breadcrumb .logo .letter .left > div,
+		.breadcrumb .logo .letter .right > div {
+			width: 100%;
+			background: currentColor;
+		}
+
+		.breadcrumb .logo .letter.j .left > div:nth-child(1) { height: 40%; margin-top: 80%; }
+		.breadcrumb .logo .letter.j .right > div:nth-child(1) { height: 100%; margin-top: 20%; }
+
+		.breadcrumb .logo .letter.s .left > div:nth-child(1) { height: 40%; margin-top: 20%; }
+		.breadcrumb .logo .letter.s .left > div:nth-child(2) { height: 20%; margin-top: 20%; }
+		.breadcrumb .logo .letter.s .right > div:nth-child(1) { height: 20%; margin-top: 20%; }
+		.breadcrumb .logo .letter.s .right > div:nth-child(2) { height: 40%; margin-top: 20%; }
+
+		.breadcrumb .logo .letter.n .left > div:nth-child(1) { height: 80%; margin-top: 20%; }
+		.breadcrumb .logo .letter.n .right > div:nth-child(1) { height: 60%; margin-top: 40%; }
+
+		.breadcrumb .logo .letter.c .left > div:nth-child(1) { height: 80%; margin-top: 20%; }
+		.breadcrumb .logo .letter.c .right > div:nth-child(1) { height: 20%; margin-top: 20%; }
+		.breadcrumb .logo .letter.c .right > div:nth-child(2) { height: 20%; margin-top: 40%; }
+
+		.breadcrumb .logo .letter.h .left > div:nth-child(1) { height: 100%; margin-top: 0; }
+		.breadcrumb .logo .letter.h .right > div:nth-child(1) { height: 60%; margin-top: 40%; }
+
+		.breadcrumb .separator {
+			opacity: 0.5;
+		}
+
+		.content {
+			max-width: 680px;
+			margin: calc(var(--cell-size) * 6) auto 0;
+		}
+
+		h1 {
+			font-size: 2rem;
+			margin: 0 0 0.5rem 0;
+		}
+
+		.intro {
+			margin-bottom: calc(var(--cell-size) * 2);
+			opacity: 0.7;
 		}
 
 		article {
-			max-width: 600px;
+			margin-bottom: calc(var(--cell-size) * 2);
 		}
 
 		article h2 {
-			font-size: 1.5rem;
-			margin: 0;
-			text-align: right;
-		}
-
-		article p {
-			font-size: 1rem;
-			line-height: 1.6;
+			font-size: 1.25rem;
 			margin: 0;
 		}
 
 		article .date {
 			font-size: 0.8rem;
-			opacity: 0.7;
+			opacity: 0.5;
+			margin: 0.25rem 0;
+		}
+
+		article .excerpt {
+			margin: 0.5rem 0 0;
+			line-height: 1.5;
 		}
 
 		@media (max-width: 768px) {
-			.logo-container {
-				left: 50%;
-				top: 0;
-				transform: translate(-50%, calc(var(--cell-size)*5));
+			main {
+				padding: var(--cell-size);
 			}
 
-			.back-link {
-				left: 50%;
-				top: 0;
-				transform: translate(-50%, var(--cell-size));
-				display: flex;
-				flex-direction: row;
-				text-align: center;
-				gap: var(--cell-size);
-			}
-
-			section {
-				justify-content: center;
-				padding: 2rem;
-			}
-
-			section .content {
-				width: 100%;
+			.content {
+				margin-top: calc(var(--cell-size) * 4);
 			}
 		}
 	</style>
 </head>
 <body>
-	<div class="logo-container" role="img" aria-label="jsnchn logo">
-		<div class="logo">
-			<div class="letter j" aria-hidden="true">
-				<div class="left"><div></div></div>
-				<div class="right"><div></div></div>
+	<nav class="breadcrumb" aria-label="Breadcrumb">
+		<a href="/" class="logo-link" aria-label="Home">
+			<div class="logo">
+				<div class="letter j" aria-hidden="true">
+					<div class="left"><div></div></div>
+					<div class="right"><div></div></div>
+				</div>
+				<div class="letter s" aria-hidden="true">
+					<div class="left"><div></div><div></div></div>
+					<div class="right"><div></div><div></div></div>
+				</div>
+				<div class="letter n" aria-hidden="true">
+					<div class="left"><div></div></div>
+					<div class="right"><div></div></div>
+				</div>
+				<div class="letter c" aria-hidden="true">
+					<div class="left"><div></div></div>
+					<div class="right"><div></div><div></div></div>
+				</div>
+				<div class="letter h" aria-hidden="true">
+					<div class="left"><div></div></div>
+					<div class="right"><div></div></div>
+				</div>
+				<div class="letter n" aria-hidden="true">
+					<div class="left"><div></div></div>
+					<div class="right"><div></div></div>
+				</div>
 			</div>
-			<div class="letter s" aria-hidden="true">
-				<div class="left"><div></div><div></div></div>
-				<div class="right"><div></div><div></div></div>
-			</div>
-			<div class="letter n" aria-hidden="true">
-				<div class="left"><div></div></div>
-				<div class="right"><div></div></div>
-			</div>
-			<div class="letter c" aria-hidden="true">
-				<div class="left"><div></div></div>
-				<div class="right"><div></div><div></div></div>
-			</div>
-			<div class="letter h" aria-hidden="true">
-				<div class="left"><div></div></div>
-				<div class="right"><div></div></div>
-			</div>
-			<div class="letter n" aria-hidden="true">
-				<div class="left"><div></div></div>
-				<div class="right"><div></div></div>
-			</div>
-		</div>
-	</div>
-
-	<a href="/" class="back-link">← Home</a>
+		</a>
+		<span class="separator">/</span>
+		<span>blog</span>
+	</nav>
 
 	<main>
-		<section aria-labelledby="blog-heading">
-			<div class="content">
-				<h1 id="blog-heading">I have thoughts</h1>
-				<p>Here are some of them:</p>
-			</div>
-		</section>
-		<section aria-labelledby="post-sliced-bread">
-			<div class="content">
-				<article id="post-sliced-bread">
-					<h2><a href="/blog/sliced-bread.html">The Undeniable Greatness of Sliced Bread</a></h2>
-					<p class="date">February 2026</p>
-					<p>A deep dive into humanity's greatest culinary innovation.</p>
-				</article>
-			</div>
-		</section>
-		<section aria-labelledby="post-sleep">
-			<div class="content">
-				<article id="post-sleep">
-					<h2><a href="/blog/sleep.html">Sleep: The Ultimate Productivity Hack</a></h2>
-					<p class="date">February 2026</p>
-					<p>Why staying awake to get more done is actually getting less done.</p>
-				</article>
-			</div>
-		</section>
-		<section aria-labelledby="post-horse">
-			<div class="content">
-				<article id="post-horse">
-					<h2><a href="/blog/horse-riding.html">Everyone Should Ride a Horse</a></h2>
-					<p class="date">February 2026</p>
-					<p>Four wheels are fine, but four legs are better.</p>
-				</article>
-			</div>
-		</section>
+		<div class="content">
+			<h1>I have thoughts</h1>
+			<p class="intro">Here are some of them:</p>
+
+			<article>
+				<h2><a href="/blog/sliced-bread.html">The Undeniable Greatness of Sliced Bread</a></h2>
+				<p class="date">February 2026</p>
+				<p class="excerpt">A deep dive into humanity's greatest culinary innovation.</p>
+			</article>
+
+			<article>
+				<h2><a href="/blog/sleep.html">Sleep: The Ultimate Productivity Hack</a></h2>
+				<p class="date">February 2026</p>
+				<p class="excerpt">Why staying awake to get more done is actually getting less done.</p>
+			</article>
+
+			<article>
+				<h2><a href="/blog/horse-riding.html">Everyone Should Ride a Horse</a></h2>
+				<p class="date">February 2026</p>
+				<p class="excerpt">Four wheels are fine, but four legs are better.</p>
+			</article>
+		</div>
 	</main>
 </body>
 </html>
