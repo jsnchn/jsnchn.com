@@ -20,3 +20,13 @@
 
 - Always develop against static files.
 - Follow GitHub Pages deployment conventions for file organization.
+
+## Publishing
+
+The site is deployed to GitHub Pages from the `gh-pages` branch.
+
+After making content or code changes:
+
+1. Run `bun run build` to build to `dist/`
+2. Push dist to gh-pages: `git subtree push --prefix dist origin gh-pages`
+3. Deploy from the `gh-pages` branch in GitHub Settings → Pages
