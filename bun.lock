@@ -1,0 +1,15 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "jsnchn.com",
+      "dependencies": {
+        "@jsnchn/buntastic": "github:jsnchn/buntastic",
+      },
+    },
+  },
+  "packages": {
+    "@jsnchn/buntastic": ["@jsnchn/buntastic@github:jsnchn/buntastic#4dba56b", { "bin": { "buntastic": "src/index.ts" } }, "jsnchn-buntastic-4dba56b"],
+  }
+}

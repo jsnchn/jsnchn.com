@@ -1,0 +1,14 @@
+{
+  "name": "jsnchn.com",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run ./node_modules/.bin/buntastic dev",
+    "build": "bun run ./node_modules/.bin/buntastic build",
+    "build:drafts": "bun run ./node_modules/.bin/buntastic build -- --drafts",
+    "preview": "bun run ./node_modules/.bin/buntastic preview"
+  },
+  "dependencies": {
+    "@jsnchn/buntastic": "github:jsnchn/buntastic"
+  }
+}
