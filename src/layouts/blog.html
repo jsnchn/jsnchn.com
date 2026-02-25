@@ -1,0 +1,213 @@
+---
+extends: base.html
+---
+<style>
+	main {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: calc(var(--cell-size) * 2) var(--cell-size);
+		box-sizing: border-box;
+	}
+
+	.breadcrumb {
+		--cell-size: 4px;
+		position: sticky;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1000;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.9rem;
+		padding: 8px;
+		background: white;
+		color: black;
+	}
+
+	.breadcrumb a {
+		color: black;
+	}
+
+	.breadcrumb .logo-link {
+		display: flex;
+		border-bottom: none;
+	}
+
+	.breadcrumb .logo {
+		display: flex;
+		flex-direction: row;
+		gap: var(--cell-size);
+	}
+
+	.breadcrumb .logo .letter {
+		width: calc(var(--cell-size) * 3);
+		height: calc(var(--cell-size) * 6);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.breadcrumb .logo .letter .left,
+	.breadcrumb .logo .letter .right {
+		width: var(--cell-size);
+		height: 100%;
+	}
+
+	.breadcrumb .logo .letter .left > div,
+	.breadcrumb .logo .letter .right > div {
+		width: 100%;
+		background: currentColor;
+	}
+
+	.breadcrumb .logo .letter.j .left > div:nth-child(1) {
+		height: calc(var(--cell-size) * 2);
+		margin-top: calc(var(--cell-size) * 4);
+	}
+	.breadcrumb .logo .letter.j .right > div:nth-child(1) {
+		height: calc(var(--cell-size) * 5);
+		margin-top: var(--cell-size);
+	}
+
+	.breadcrumb .logo .letter.c .left > div:nth-child(1) {
+		height: calc(var(--cell-size) * 4);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.c .right > div:nth-child(1) {
+		height: var(--cell-size);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.c .right > div:nth-child(2) {
+		height: var(--cell-size);
+		margin-top: calc(var(--cell-size) * 2);
+	}
+
+	.breadcrumb .logo .letter.h .left > div:nth-child(1) {
+		height: calc(var(--cell-size) * 5);
+		margin-top: 0;
+	}
+	.breadcrumb .logo .letter.h .right > div:nth-child(1) {
+		height: calc(var(--cell-size) * 3);
+		margin-top: calc(var(--cell-size) * 2);
+	}
+
+	.breadcrumb .logo .letter.n .left > div:nth-child(1) {
+		height: calc(var(--cell-size) * 4);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.n .right > div:nth-child(1) {
+		height: calc(var(--cell-size) * 3);
+		margin-top: calc(var(--cell-size) * 2);
+	}
+
+	.breadcrumb .logo .letter.s .left > div:nth-child(1) {
+		height: calc(var(--cell-size) * 2);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.s .left > div:nth-child(2) {
+		height: var(--cell-size);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.s .right > div:nth-child(1) {
+		height: var(--cell-size);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.s .right > div:nth-child(2) {
+		height: calc(var(--cell-size) * 2);
+		margin-top: var(--cell-size);
+	}
+
+	.breadcrumb .separator {
+		opacity: 0.5;
+	}
+
+	.content {
+		max-width: 40ch;
+		margin: 0 auto;
+		padding: var(--cell-size);
+	}
+
+	h1 {
+		font-size: 2rem;
+		margin: 0 0 0.5rem 0;
+	}
+
+	.intro {
+		margin-bottom: calc(var(--cell-size) * 2);
+		opacity: 0.7;
+		font-size: 1rem;
+	}
+
+	article {
+		margin-bottom: calc(var(--cell-size) * 2);
+	}
+
+	article h2 {
+		font-size: 1.25rem;
+		margin: 0;
+	}
+
+	article .date {
+		font-size: 0.8rem;
+		opacity: 0.5;
+		margin: 0.25rem 0;
+	}
+
+	article .excerpt {
+		margin: 0.5rem 0 0;
+		line-height: 1.5;
+		font-size: 1rem;
+	}
+
+	@media (max-width: 768px) {
+		main {
+			padding: 0;
+		}
+
+		.content {
+			padding: var(--cell-size);
+		}
+	}
+</style>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+	<a href="/" class="logo-link" aria-label="Home">
+		<div class="logo">
+			<div class="letter j" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+			<div class="letter s" aria-hidden="true">
+				<div class="left"><div></div><div></div></div>
+				<div class="right"><div></div><div></div></div>
+			</div>
+			<div class="letter n" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+			<div class="letter c" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div><div></div></div>
+			</div>
+			<div class="letter h" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+			<div class="letter n" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+		</div>
+	</a>
+	<span class="separator">/</span>
+	<span>Blog</span>
+</nav>
+
+<main>
+	<div class="content">
+		<h1>Blog</h1>
+		<p class="intro">Things I meant to say briefly.</p>
+
+		{{ collection }}
+	</div>
+</main>

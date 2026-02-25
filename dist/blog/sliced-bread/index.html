@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Undeniable Greatness of Sliced Bread - Jason Chen</title>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/global.css">
+	<style>
+		:root {
+			--cell-size: 20px;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--bg-color: black;
+				--text-color: white;
+			}
+		}
+
+		@media (prefers-color-scheme: light) {
+			:root {
+				--bg-color: white;
+				--text-color: black;
+			}
+		}
+
+		body {
+			margin: 0;
+			background: var(--bg-color);
+			color: var(--text-color);
+			font-family: "Share Tech Mono", monospace;
+			font-weight: 400;
+			font-style: normal;
+			font-size: calc(var(--cell-size) + 0.5rem);
+		}
+
+		a {
+			position: relative;
+			display: inline-block;
+			text-decoration: none;
+			border-bottom: 2px solid currentColor;
+			color: var(--text-color);
+		}
+		a:hover {
+			animation: shake 0.3s infinite ease-in-out;
+		}
+		a:before {
+			display: none;
+		}
+
+		.logo {
+			display: flex;
+			flex-direction: row;
+			gap: var(--cell-size);
+		}
+
+		.logo .letter {
+			width: calc(var(--cell-size) * 3);
+			height: calc(var(--cell-size) * 6);
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		.logo .letter .left,
+		.logo .letter .right {
+			width: var(--cell-size);
+			height: 100%;
+		}
+
+		.logo .letter .left > div,
+		.logo .letter .right > div {
+			width: 100%;
+			background: white;
+		}
+
+		.logo .letter.j .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 2);
+			margin-top: calc(var(--cell-size) * 4);
+		}
+		.logo .letter.j .right > div:nth-child(1) {
+			height: calc(var(--cell-size) * 5);
+			margin-top: var(--cell-size);
+		}
+
+		.logo .letter.c .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 4);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.c .right > div:nth-child(1) {
+			height: var(--cell-size);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.c .right > div:nth-child(2) {
+			height: var(--cell-size);
+			margin-top: calc(var(--cell-size) * 2);
+		}
+
+		.logo .letter.h .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 5);
+			margin-top: 0;
+		}
+		.logo .letter.h .right > div:nth-child(1) {
+			height: calc(var(--cell-size) * 3);
+			margin-top: calc(var(--cell-size) * 2);
+		}
+
+		.logo .letter.n .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 4);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.n .right > div:nth-child(1) {
+			height: calc(var(--cell-size) * 3);
+			margin-top: calc(var(--cell-size) * 2);
+		}
+
+		.logo .letter.s .left > div:nth-child(1) {
+			height: calc(var(--cell-size) * 2);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.s .left > div:nth-child(2) {
+			height: var(--cell-size);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.s .right > div:nth-child(1) {
+			height: var(--cell-size);
+			margin-top: var(--cell-size);
+		}
+		.logo .letter.s .right > div:nth-child(2) {
+			height: calc(var(--cell-size) * 2);
+			margin-top: var(--cell-size);
+		}
+
+		@keyframes shake {
+			0%   { transform: translate(1px, 1px) rotate(0deg); }
+			10%  { transform: translate(-2px, -3px) rotate(-1deg); }
+			20%  { transform: translate(-3px, 2px) rotate(1deg); }
+			30%  { transform: translate(3px, -1px) rotate(0deg); }
+			40%  { transform: translate(1px, 3px) rotate(1deg); }
+			50%  { transform: translate(-1px, -2px) rotate(-1deg); }
+			60%  { transform: translate(-3px, 1px) rotate(0deg); }
+			70%  { transform: translate(3px, 1px) rotate(-1deg); }
+			80%  { transform: translate(-1px, -3px) rotate(-1deg); }
+			90%  { transform: translate(2px, 3px) rotate(0deg); }
+			100% { transform: translate(0px, 0px) rotate(-1deg); }
+		}
+
+		@media (max-width: 768px) {
+			:root {
+				--cell-size: 10px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<style>
+	main {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: calc(var(--cell-size) * 2) var(--cell-size);
+		box-sizing: border-box;
+	}
+
+	.breadcrumb {
+		--cell-size: 4px;
+		position: sticky;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1000;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.9rem;
+		padding: 8px;
+		background: white;
+		color: black;
+	}
+
+	.breadcrumb a {
+		color: black;
+	}
+
+	.breadcrumb .logo-link {
+		display: flex;
+		border-bottom: none;
+	}
+
+	.breadcrumb .logo {
+		display: flex;
+		flex-direction: row;
+		gap: var(--cell-size);
+	}
+
+	.breadcrumb .logo .letter {
+		width: calc(var(--cell-size) * 3);
+		height: calc(var(--cell-size) * 6);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.breadcrumb .logo .letter .left,
+	.breadcrumb .logo .letter .right {
+		width: var(--cell-size);
+		height: 100%;
+	}
+
+	.breadcrumb .logo .letter .left > div,
+	.breadcrumb .logo .letter .right > div {
+		width: 100%;
+		background: currentColor;
+	}
+
+	.breadcrumb .logo .letter.j .left > div:nth-child(1) {
+		height: calc(var(--cell-size) * 2);
+		margin-top: calc(var(--cell-size) * 4);
+	}
+	.breadcrumb .logo .letter.j .right > div:nth-child(1) {
+		height: calc(var(--cell-size) * 5);
+		margin-top: var(--cell-size);
+	}
+
+	.breadcrumb .logo .letter.c .left > div:nth-child(1) {
+		height: calc(var(--cell-size) * 4);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.c .right > div:nth-child(1) {
+		height: var(--cell-size);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.c .right > div:nth-child(2) {
+		height: var(--cell-size);
+		margin-top: calc(var(--cell-size) * 2);
+	}
+
+	.breadcrumb .logo .letter.h .left > div:nth-child(1) {
+		height: calc(var(--cell-size) * 5);
+		margin-top: 0;
+	}
+	.breadcrumb .logo .letter.h .right > div:nth-child(1) {
+		height: calc(var(--cell-size) * 3);
+		margin-top: calc(var(--cell-size) * 2);
+	}
+
+	.breadcrumb .logo .letter.n .left > div:nth-child(1) {
+		height: calc(var(--cell-size) * 4);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.n .right > div:nth-child(1) {
+		height: calc(var(--cell-size) * 3);
+		margin-top: calc(var(--cell-size) * 2);
+	}
+
+	.breadcrumb .logo .letter.s .left > div:nth-child(1) {
+		height: calc(var(--cell-size) * 2);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.s .left > div:nth-child(2) {
+		height: var(--cell-size);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.s .right > div:nth-child(1) {
+		height: var(--cell-size);
+		margin-top: var(--cell-size);
+	}
+	.breadcrumb .logo .letter.s .right > div:nth-child(2) {
+		height: calc(var(--cell-size) * 2);
+		margin-top: var(--cell-size);
+	}
+
+	.breadcrumb .separator {
+		opacity: 0.5;
+	}
+
+	.content {
+		max-width: 40ch;
+		margin: 0 auto;
+		padding: var(--cell-size);
+	}
+
+	h1 {
+		font-size: 2rem;
+		margin: 0 0 0.5rem 0;
+	}
+
+	.date {
+		font-size: 0.8rem;
+		opacity: 0.5;
+		margin-bottom: 2rem;
+	}
+
+	p {
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+		font-size: 1rem;
+		font-weight: 400;
+	}
+
+	.back-link {
+		display: inline-block;
+		margin-top: 1rem;
+	}
+
+	@media (max-width: 768px) {
+		main {
+			padding: 0;
+		}
+
+		.content {
+			padding: var(--cell-size);
+		}
+	}
+</style>
+<nav class="breadcrumb" aria-label="Breadcrumb">
+	<a href="/" class="logo-link" aria-label="Home">
+		<div class="logo">
+			<div class="letter j" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+			<div class="letter s" aria-hidden="true">
+				<div class="left"><div></div><div></div></div>
+				<div class="right"><div></div><div></div></div>
+			</div>
+			<div class="letter n" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+			<div class="letter c" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div><div></div></div>
+			</div>
+			<div class="letter h" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+			<div class="letter n" aria-hidden="true">
+				<div class="left"><div></div></div>
+				<div class="right"><div></div></div>
+			</div>
+		</div>
+	</a>
+	<span class="separator">/</span>
+	<a href="/blog/">Blog</a>
+	<span class="separator">/</span>
+	<span>The Undeniable Greatness of Sliced Bread</span>
+</nav>
+
+<main>
+	<div class="content">
+		<h1>The Undeniable Greatness of Sliced Bread</h1>
+		<p class="date">February 2026</p>
+
+		<p>When someone tells you that something is &quot;the greatest thing since sliced bread,&quot; have you ever stopped to consider what they're actually saying? They're saying it's almost as good as sliced bread. Not better than. Almost as good as. Because sliced bread, my friends, is the pinnacle of human innovation.</p>
+<p>Before 1928, bread was a solid block. A dense, crusty, unpredictable block. You couldn't see inside it. You couldn't spread butter evenly on it. You had to hack at it with a knife, hoping for the best, fearing the worst. It was, in many ways, a dark age for breakfast.</p>
+<p>Then came Otto Rohwedder. A jeweler from Iowa who had the audacity to imagine a world where bread came pre-sliced. His machine didn't just slice bread—it sliced through centuries of frustration. It democratized toast. It made sandwiches possible for the everyman. Before sliced bread, a PB&amp;J was a luxury reserved for those with exceptionally steady hands and very sharp knives.</p>
+<p>Today, we take sliced bread for granted. We toss it carelessly into shopping carts, let it go stale in pantries, and barely glance at it on our way to more &quot;exciting&quot; foods. But make no mistake: sliced bread is the foundation upon which modern civilization is built. From the humble ham sandwich to the gourmet panini, all roads lead back to those perfectly uniform, pre-sliced loaves.</p>
+<p>So the next time you hear &quot;the greatest thing since sliced bread,&quot; remember: that's not hyperbole. That's a statement of fact. The only thing greater than sliced bread would be... well, bread that's already buttered.</p>
+
+
+		<p><a href="/blog/">← Back to blog</a></p>
+	</div>
+</main>
+
+</body>
+</html>
