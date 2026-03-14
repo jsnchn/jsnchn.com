@@ -141,4 +141,19 @@
 		:root {
 			--cell-size: 10px;
 		}
+		.logo-container,
+		nav {
+			left: 50%;
+			top: 0;
+		}
+		.logo-container {
+			transform: translate(-50%, calc(var(--cell-size)*5));
+		}
+		nav {
+			transform: translate(-50%,var(--cell-size));
+			display: flex;
+			flex-direction: row;
+			text-align: center;
+			gap: var(--cell-size);
+		}
 	}
