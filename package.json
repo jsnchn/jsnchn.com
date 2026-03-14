@@ -9,6 +9,6 @@
     "preview": "bun run ./node_modules/.bin/buntastic preview"
   },
   "dependencies": {
-    "@jsnchn/buntastic": "github:jsnchn/buntastic"
+    "@jsnchn/buntastic": "^0.0.5"
   }
 }
