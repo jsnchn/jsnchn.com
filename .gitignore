@@ -1,1 +1,9 @@
 .DS_Store
+Thumbs.db
+
+
+node_modules/
+
+.bun/
+bunfig.toml.local
+bun-*.log
