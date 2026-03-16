@@ -7,165 +7,11 @@
 	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,700;1,400;1,700&family=Alegreya+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="/global.css">
-	<style>
-		:root {
-			--cell-size: 20px;
-		}
 
-		@media (prefers-color-scheme: dark) {
-			:root {
-				--bg-color: black;
-				--text-color: white;
-			}
-		}
 
-		@media (prefers-color-scheme: light) {
-			:root {
-				--bg-color: white;
-				--text-color: black;
-			}
-		}
-
-		body {
-			margin: 0;
-			background: var(--bg-color);
-			color: var(--text-color);
-			font-family: "Share Tech Mono", monospace;
-			font-weight: 400;
-			font-style: normal;
-			font-size: calc(var(--cell-size) + 0.5rem);
-		}
-
-		a {
-			position: relative;
-			display: inline-block;
-			text-decoration: none;
-			border-bottom: 2px solid currentColor;
-			color: var(--text-color);
-		}
-		a:hover {
-			animation: shake 0.3s infinite ease-in-out;
-		}
-		a:before {
-			display: none;
-		}
-
-		.logo {
-			display: flex;
-			flex-direction: row;
-			gap: var(--cell-size);
-		}
-
-		.logo .letter {
-			width: calc(var(--cell-size) * 3);
-			height: calc(var(--cell-size) * 6);
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-		}
-
-		.logo .letter .left,
-		.logo .letter .right {
-			width: var(--cell-size);
-			height: 100%;
-		}
-
-		.logo .letter .left > div,
-		.logo .letter .right > div {
-			width: 100%;
-			background: white;
-		}
-
-		.logo .letter.j .left > div:nth-child(1) {
-			height: calc(var(--cell-size) * 2);
-			margin-top: calc(var(--cell-size) * 4);
-		}
-		.logo .letter.j .right > div:nth-child(1) {
-			height: calc(var(--cell-size) * 5);
-			margin-top: var(--cell-size);
-		}
-
-		.logo .letter.c .left > div:nth-child(1) {
-			height: calc(var(--cell-size) * 4);
-			margin-top: var(--cell-size);
-		}
-		.logo .letter.c .right > div:nth-child(1) {
-			height: var(--cell-size);
-			margin-top: var(--cell-size);
-		}
-		.logo .letter.c .right > div:nth-child(2) {
-			height: var(--cell-size);
-			margin-top: calc(var(--cell-size) * 2);
-		}
-
-		.logo .letter.h .left > div:nth-child(1) {
-			height: calc(var(--cell-size) * 5);
-			margin-top: 0;
-		}
-		.logo .letter.h .right > div:nth-child(1) {
-			height: calc(var(--cell-size) * 3);
-			margin-top: calc(var(--cell-size) * 2);
-		}
-
-		.logo .letter.n .left > div:nth-child(1) {
-			height: calc(var(--cell-size) * 4);
-			margin-top: var(--cell-size);
-		}
-		.logo .letter.n .right > div:nth-child(1) {
-			height: calc(var(--cell-size) * 3);
-			margin-top: calc(var(--cell-size) * 2);
-		}
-
-		.logo .letter.s .left > div:nth-child(1) {
-			height: calc(var(--cell-size) * 2);
-			margin-top: var(--cell-size);
-		}
-		.logo .letter.s .left > div:nth-child(2) {
-			height: var(--cell-size);
-			margin-top: var(--cell-size);
-		}
-		.logo .letter.s .right > div:nth-child(1) {
-			height: var(--cell-size);
-			margin-top: var(--cell-size);
-		}
-		.logo .letter.s .right > div:nth-child(2) {
-			height: calc(var(--cell-size) * 2);
-			margin-top: var(--cell-size);
-		}
-
-		@keyframes shake {
-			0%   { transform: translate(1px, 1px) rotate(0deg); }
-			10%  { transform: translate(-2px, -3px) rotate(-1deg); }
-			20%  { transform: translate(-3px, 2px) rotate(1deg); }
-			30%  { transform: translate(3px, -1px) rotate(0deg); }
-			40%  { transform: translate(1px, 3px) rotate(1deg); }
-			50%  { transform: translate(-1px, -2px) rotate(-1deg); }
-			60%  { transform: translate(-3px, 1px) rotate(0deg); }
-			70%  { transform: translate(3px, 1px) rotate(-1deg); }
-			80%  { transform: translate(-1px, -3px) rotate(-1deg); }
-			90%  { transform: translate(2px, 3px) rotate(0deg); }
-			100% { transform: translate(0px, 0px) rotate(-1deg); }
-		}
-
-		@media (max-width: 768px) {
-			:root {
-				--cell-size: 10px;
-			}
-		}
-	</style>
-</head>
-<body>
-	<style>
-	main {
-		position: relative;
-		display: block;
-		width: 100%;
-		padding: calc(var(--cell-size) * 2) var(--cell-size);
-		box-sizing: border-box;
-	}
-
+<style>
 	.breadcrumb {
 		--cell-size: 4px;
 		position: sticky;
@@ -278,46 +124,23 @@
 		opacity: 0.5;
 	}
 
-	.content {
-		max-width: 40ch;
-		margin: 0 auto;
-		padding: var(--cell-size);
-	}
-
-	h1 {
-		font-size: 2rem;
-		margin: 0 0 0.5rem 0;
-	}
-
 	.date {
-		font-size: 0.8rem;
-		opacity: 0.5;
-		margin-bottom: 2rem;
+		opacity: 0.7
 	}
 
-	p {
-		line-height: 1.6;
-		margin-bottom: 1.5rem;
-		font-size: 1rem;
-		font-weight: 400;
+	.content {
+		max-width: 60ch;
+		margin: 0 auto;
 	}
 
 	.back-link {
 		display: inline-block;
 		margin-top: 1rem;
 	}
-
-	@media (max-width: 768px) {
-		main {
-			padding: 0;
-		}
-
-		.content {
-			padding: var(--cell-size);
-		}
-	}
 </style>
-<nav class="breadcrumb" aria-label="Breadcrumb">
+</head>
+<body>
+	<nav class="breadcrumb" aria-label="Breadcrumb">
 	<a href="/" class="logo-link" aria-label="Home">
 		<div class="logo">
 			<div class="letter j" aria-hidden="true">
@@ -364,9 +187,8 @@
 <p>So the next time you hear &quot;the greatest thing since sliced bread,&quot; remember: that's not hyperbole. That's a statement of fact. The only thing greater than sliced bread would be... well, bread that's already buttered.</p>
 
 
-		<p><a href="/blog/">← Back to blog</a></p>
+		<hr>
 	</div>
 </main>
-
 </body>
 </html>

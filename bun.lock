@@ -5,11 +5,11 @@
     "": {
       "name": "jsnchn.com",
       "dependencies": {
-        "@jsnchn/buntastic": "^0.0.5",
+        "@jsnchn/buntastic": "^0.3.1",
       },
     },
   },
   "packages": {
-    "@jsnchn/buntastic": ["@jsnchn/buntastic@0.0.5", "", { "bin": { "buntastic": "src/index.ts" } }, "sha512-+xun2+Zr46iBUdffbxl4U2yiMEPb4FKpmdsnDymeQMso87FjYwNZwo/eaLrCFa3jk8Jmde1KstIxSy+3CzBJfA=="],
+    "@jsnchn/buntastic": ["@jsnchn/buntastic@0.3.1", "", { "bin": { "buntastic": "src/index.ts" } }, "sha512-FTyQ6PRTvY+/s5B7m6G+VXH1r8phfhZ17ljDztuWQIYE/n1XlpxpyXwb4NwB4DQgS1763EJgSHC4uKttVzrkZA=="],
   }
 }

@@ -1,15 +1,8 @@
 ---
 extends: base.html
 ---
+[head]
 <style>
-	main {
-		position: relative;
-		display: block;
-		width: 100%;
-		padding: calc(var(--cell-size) * 2) var(--cell-size);
-		box-sizing: border-box;
-	}
-
 	.breadcrumb {
 		--cell-size: 4px;
 		position: sticky;
@@ -122,45 +115,22 @@ extends: base.html
 		opacity: 0.5;
 	}
 
-	.content {
-		max-width: 40ch;
-		margin: 0 auto;
-		padding: var(--cell-size);
-	}
-
-	h1 {
-		font-size: 2rem;
-		margin: 0 0 0.5rem 0;
-	}
-
 	.date {
-		font-size: 0.8rem;
-		opacity: 0.5;
-		margin-bottom: 2rem;
+		opacity: 0.7
 	}
 
-	p {
-		line-height: 1.6;
-		margin-bottom: 1.5rem;
-		font-size: 1rem;
-		font-weight: 400;
+	.content {
+		max-width: 60ch;
+		margin: 0 auto;
 	}
 
 	.back-link {
 		display: inline-block;
 		margin-top: 1rem;
 	}
-
-	@media (max-width: 768px) {
-		main {
-			padding: 0;
-		}
-
-		.content {
-			padding: var(--cell-size);
-		}
-	}
 </style>
+[/head]
+
 <nav class="breadcrumb" aria-label="Breadcrumb">
 	<a href="/" class="logo-link" aria-label="Home">
 		<div class="logo">
@@ -203,6 +173,6 @@ extends: base.html
 
 		{{ content | safe }}
 
-		<p><a href="/blog/">← Back to blog</a></p>
+		<hr>
 	</div>
 </main>
