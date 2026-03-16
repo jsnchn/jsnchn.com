@@ -6,7 +6,8 @@
     "dev": "bun run ./node_modules/.bin/buntastic dev",
     "build": "bun run ./node_modules/.bin/buntastic build",
     "build:drafts": "bun run ./node_modules/.bin/buntastic build -- --drafts",
-    "preview": "bun run ./node_modules/.bin/buntastic preview"
+    "preview": "bun run ./node_modules/.bin/buntastic preview",
+    "deploy": "bun run build && git add dist -f && git commit -m 'Deploy' && git push"
   },
   "dependencies": {
     "@jsnchn/buntastic": "^0.3.1"
