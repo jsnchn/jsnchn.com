@@ -239,7 +239,7 @@ extends: base.html
 	for (let i = 0; i < 22; i++) {
 		const el = document.createElement('div');
 		el.className = 'cursor-circle circle-ring';
-		const size = 20 + 8 * i + 2.5 * i * i;
+		const size = 20 + 8 * i + 1.2 * i * i;
 		const t = i / 21; // 0..1
 		const opacity = Math.max(0.1, Math.pow(1 - t, 1.6));
 		const borderWidth = Math.max(0.3, 1.5 - t * 1.2);
