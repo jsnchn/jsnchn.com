@@ -309,4 +309,13 @@ extends: base.html
 		const touch = e.touches[0];
 		overlay.style.clipPath = getClipPath(touch.clientX, touch.clientY);
 	}, { passive: true });
+
+	const scrollHint = document.querySelector('header .scroll-hint');
+	let hasScrolled = false;
+	window.addEventListener('scroll', () => {
+		if (!hasScrolled) {
+			hasScrolled = true;
+			scrollHint.style.opacity = '0';
+		}
+	}, { passive: true });
 </script>
