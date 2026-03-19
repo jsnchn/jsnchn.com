@@ -241,12 +241,10 @@ extends: base.html
 		el.className = 'cursor-circle circle-ring';
 		const size = 20 + 8 * i + 1.2 * i * i;
 		const t = i / 21; // 0..1
-		const opacity = 0.45 * Math.pow(1 - t, 1.6);
-		const borderWidth = Math.max(0.3, 1.5 - t * 1.2);
+		const borderWidth = 4 * (1 - t) + 0.25;
 		const style = ringStyles[i % 3];
 		el.style.width = size + 'px';
 		el.style.height = size + 'px';
-		el.style.opacity = opacity;
 		el.style.borderWidth = borderWidth + 'px';
 		el.style.borderStyle = style;
 		el.style.transitionDuration = (0.1 + t * 0.25) + 's';
