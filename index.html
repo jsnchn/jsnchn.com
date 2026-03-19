@@ -12,6 +12,17 @@
 
 
 <style>
+	body {
+		background: white !important;
+		color: black !important;
+	}
+
+	@media (hover: hover) {
+		body, body a, body button {
+			cursor: none !important;
+		}
+	}
+
 	header {
 		width: 100%;
 		height: 100vh;
@@ -22,30 +33,21 @@
 		position: relative;
 	}
 
-	main section:nth-child(even) {
-		background: black;
-		color: white;
-	}
-
-	main section:nth-child(even) a {
-		color: white;
-		border-bottom: 2px solid currentColor;
-	}
-	main section:nth-child(even) a:before {
-		display: none;
-	}
-
-	main section:nth-of-type(even) .logo .letter .left > div,
-	main section:nth-of-type(even) .logo .letter .right > div {
-		background: white;
-	}
-
 	main {
 		width: 100%;
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
+	}
+
+	.logo .letter .left > div,
+	.logo .letter .right > div {
+		background: black !important;
+	}
+
+	a {
+		color: black !important;
 	}
 
 	header .scroll-hint {
@@ -76,27 +78,95 @@
 		font-size: 1rem;
 	}
 
+	/* Split overlay */
+	.split-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: white;
+		mix-blend-mode: difference;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	/* Cursor circles */
+	.cursor-circle {
+		position: fixed;
+		border-radius: 50%;
+		pointer-events: none;
+		z-index: 3;
+		mix-blend-mode: difference;
+		transform: translate(-50%, -50%);
+	}
+
+	.circle-small {
+		width: 8px;
+		height: 8px;
+		background: white;
+		transition: transform 0.1s ease;
+	}
+
+	.circle-small--active {
+		transform: translate(-50%, -50%) scale(0.5);
+	}
+
+	.circle-inner {
+		width: 30px;
+		height: 30px;
+		border: 1.5px solid white;
+		transition: width 0.15s ease, height 0.15s ease;
+	}
+
+	.circle-outer {
+		width: 50px;
+		height: 50px;
+		border: 1px dotted white;
+		opacity: 0.4;
+		transition: width 0.2s ease, height 0.2s ease;
+	}
+
+	@media (hover: none) {
+		.cursor-circle {
+			display: none !important;
+		}
+	}
+
+	/* Dialog above overlay */
 	dialog {
 		border: 2px solid black;
 		background: white;
 		color: black;
-		padding: 2rem;
 		max-width: 400px;
 		width: 90%;
+		padding: 0;
 		box-shadow: 10px 10px 0px 0px black;
+		z-index: 10;
+		isolation: isolate;
 	}
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.5);
+		z-index: 9;
+	}
+	.dialog-content {
+		padding: 1rem;		
+	}
+	.dialog-content:hover, .dialog-content *:hover {
+		cursor: auto !important;
+	}
+	.dialog-content button:hover {
+		cursor: pointer !important;
 	}
 
 	@media (max-width: 768px) {
-	section {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		width: 100%;
-		flex: 1;
-	}
+		section {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			width: 100%;
+			flex: 1;
+		}
 		section .content {
 			width: 100%;
 			font-size: 1.25rem;
@@ -140,10 +210,12 @@
 	<div class="scroll-hint">scroll</div>
 </header>
 <dialog id="about-modal">
-	<form method="dialog">
-		<img src="/IMG_7853.jpeg" alt="" style="max-width: 100%; display: block; margin-bottom: 1rem;">
-		<button value="close">Close</button>
-	</form>
+	<div class="dialog-content">
+		<form method="dialog">
+			<img src="/IMG_7853.jpeg" alt="" style="max-width: 100%; display: block; margin-bottom: 1rem;">
+			<button value="close">Esc</button>
+		</form>
+	</div>
 </dialog>
 <main>
 	<section aria-labelledby="intro">
@@ -172,7 +244,80 @@
 		</div>
 	</section>
 </main>
+<div class="split-overlay" id="split-overlay"></div>
+<div class="cursor-circle circle-small" id="circle-small"></div>
+<div class="cursor-circle circle-inner" id="circle-inner"></div>
+<div class="cursor-circle circle-outer" id="circle-outer"></div>
 <script>
+	const modal = document.getElementById('about-modal');
+
+	modal.addEventListener('mouseleave', () => {
+		circleSmall.style.display = '';
+		circleInner.style.display = '';
+		circleOuter.style.display = '';
+	});
+
+	modal.addEventListener('close', () => {
+		circleSmall.style.display = '';
+		circleInner.style.display = '';
+		circleOuter.style.display = '';
+	});
+
+	const overlay = document.getElementById('split-overlay');
+	const circleSmall = document.getElementById('circle-small');
+	const circleInner = document.getElementById('circle-inner');
+	const circleOuter = document.getElementById('circle-outer');
+
+	let w = window.innerWidth;
+	let h = window.innerHeight;
+	let angle = (Math.random() - 0.5) * 0.4; // slight random slope
+
+	function getClipPath(mx, my) {
+		const dx = Math.tan(angle);
+		// Line through (mx, my) with slope dx
+		// Calculate left and right y-intercepts
+		const yLeft = my - dx * mx;
+		const yRight = my + dx * (w - mx);
+		return `polygon(0 ${yLeft}px, ${w}px ${yRight}px, ${w}px ${h}px, 0 ${h}px)`;
+	}
+
+	// Set initial 50% split
+	overlay.style.clipPath = getClipPath(w / 2, h / 2);
+
+	function moveCursors(x, y) {
+		const pos = `${x}px`;
+		const posY = `${y}px`;
+		circleSmall.style.left = pos;
+		circleSmall.style.top = posY;
+		circleInner.style.left = pos;
+		circleInner.style.top = posY;
+		circleOuter.style.left = pos;
+		circleOuter.style.top = posY;
+	}
+
+	window.addEventListener('mousemove', (e) => {
+		overlay.style.clipPath = getClipPath(e.clientX, e.clientY);
+		moveCursors(e.clientX, e.clientY);
+	});
+
+	window.addEventListener('mousedown', () => {
+		circleSmall.classList.add('circle-small--active');
+	});
+
+	window.addEventListener('mouseup', () => {
+		circleSmall.classList.remove('circle-small--active');
+	});
+
+	window.addEventListener('resize', () => {
+		w = window.innerWidth;
+		h = window.innerHeight;
+	});
+
+	window.addEventListener('touchmove', (e) => {
+		const touch = e.touches[0];
+		overlay.style.clipPath = getClipPath(touch.clientX, touch.clientY);
+	}, { passive: true });
+
 	const scrollHint = document.querySelector('header .scroll-hint');
 	let hasScrolled = false;
 	window.addEventListener('scroll', () => {
