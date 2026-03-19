@@ -227,11 +227,13 @@ extends: base.html
 </main>
 <div class="split-overlay" id="split-overlay"></div>
 <div class="cursor-circle circle-small" id="circle-small"></div>
+<div id="cursor-rings"></div>
 <script>
 	const modal = document.getElementById('about-modal');
 
 	const overlay = document.getElementById('split-overlay');
 	const circleSmall = document.getElementById('circle-small');
+	const ringsContainer = document.getElementById('cursor-rings');
 
 	// Generate 22 concentric rings with varying styles
 	const rings = [];
@@ -250,7 +252,7 @@ extends: base.html
 		el.style.borderWidth = borderWidth + 'px';
 		el.style.borderStyle = style;
 		el.style.transitionDuration = (0.1 + t * 0.25) + 's';
-		document.body.appendChild(el);
+		ringsContainer.appendChild(el);
 		rings.push(el);
 	}
 
