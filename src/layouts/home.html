@@ -113,7 +113,7 @@ extends: base.html
 	.circle-outer {
 		width: 50px;
 		height: 50px;
-		border: 1px solid white;
+		border: 1px dotted white;
 		opacity: 0.4;
 		transition: width 0.2s ease, height 0.2s ease;
 	}
@@ -125,19 +125,13 @@ extends: base.html
 	}
 
 	/* Dialog above overlay */
-	dialog, dialog * {
-		cursor: auto !important;
-	}
-	dialog button {
-		cursor: pointer !important;
-	}
 	dialog {
 		border: 2px solid black;
 		background: white;
 		color: black;
-		padding: 2rem;
 		max-width: 400px;
 		width: 90%;
+		padding: 0;
 		box-shadow: 10px 10px 0px 0px black;
 		z-index: 10;
 		isolation: isolate;
@@ -145,6 +139,15 @@ extends: base.html
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.5);
 		z-index: 9;
+	}
+	.dialog-content {
+		padding: 1rem;		
+	}
+	.dialog-content:hover, .dialog-content *:hover {
+		cursor: auto !important;
+	}
+	.dialog-content button:hover {
+		cursor: pointer !important;
 	}
 
 	@media (max-width: 768px) {
@@ -198,10 +201,12 @@ extends: base.html
 	<div class="scroll-hint">scroll</div>
 </header>
 <dialog id="about-modal">
-	<form method="dialog">
-		<img src="/IMG_7853.jpeg" alt="" style="max-width: 100%; display: block; margin-bottom: 1rem;">
-		<button value="close">Close</button>
-	</form>
+	<div class="dialog-content">
+		<form method="dialog">
+			<img src="/IMG_7853.jpeg" alt="" style="max-width: 100%; display: block; margin-bottom: 1rem;">
+			<button value="close">Esc</button>
+		</form>
+	</div>
 </dialog>
 <main>
 	<section aria-labelledby="intro">
@@ -236,12 +241,6 @@ extends: base.html
 <div class="cursor-circle circle-outer" id="circle-outer"></div>
 <script>
 	const modal = document.getElementById('about-modal');
-
-	modal.addEventListener('mouseenter', () => {
-		circleSmall.style.display = 'none';
-		circleInner.style.display = 'none';
-		circleOuter.style.display = 'none';
-	});
 
 	modal.addEventListener('mouseleave', () => {
 		circleSmall.style.display = '';
