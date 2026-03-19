@@ -124,6 +124,14 @@ extends: base.html
 		}
 	}
 
+	body.modal-open {
+		cursor: auto !important;
+	}
+
+	body.modal-open .cursor-circle {
+		display: none !important;
+	}
+
 	/* Dialog above overlay */
 	dialog {
 		border: 2px solid black;
@@ -229,6 +237,15 @@ extends: base.html
 <div class="cursor-circle circle-inner" id="circle-inner"></div>
 <div class="cursor-circle circle-outer" id="circle-outer"></div>
 <script>
+	const modal = document.getElementById('about-modal');
+	modal.addEventListener('close', () => document.body.classList.remove('modal-open'));
+
+	const origShowModal = modal.showModal.bind(modal);
+	modal.showModal = function() {
+		document.body.classList.add('modal-open');
+		origShowModal();
+	};
+
 	const overlay = document.getElementById('split-overlay');
 	const circleSmall = document.getElementById('circle-small');
 	const circleInner = document.getElementById('circle-inner');
