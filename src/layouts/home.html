@@ -9,8 +9,8 @@ extends: base.html
 	}
 
 	@media (hover: hover) {
-		body {
-			cursor: none;
+		body, body a, body button {
+			cursor: none !important;
 		}
 	}
 
@@ -124,15 +124,13 @@ extends: base.html
 		}
 	}
 
-	body.modal-open {
+	/* Dialog above overlay */
+	dialog, dialog * {
 		cursor: auto !important;
 	}
-
-	body.modal-open .cursor-circle {
-		display: none !important;
+	dialog button {
+		cursor: pointer !important;
 	}
-
-	/* Dialog above overlay */
 	dialog {
 		border: 2px solid black;
 		background: white;
@@ -238,13 +236,24 @@ extends: base.html
 <div class="cursor-circle circle-outer" id="circle-outer"></div>
 <script>
 	const modal = document.getElementById('about-modal');
-	modal.addEventListener('close', () => document.body.classList.remove('modal-open'));
 
-	const origShowModal = modal.showModal.bind(modal);
-	modal.showModal = function() {
-		document.body.classList.add('modal-open');
-		origShowModal();
-	};
+	modal.addEventListener('mouseenter', () => {
+		circleSmall.style.display = 'none';
+		circleInner.style.display = 'none';
+		circleOuter.style.display = 'none';
+	});
+
+	modal.addEventListener('mouseleave', () => {
+		circleSmall.style.display = '';
+		circleInner.style.display = '';
+		circleOuter.style.display = '';
+	});
+
+	modal.addEventListener('close', () => {
+		circleSmall.style.display = '';
+		circleInner.style.display = '';
+		circleOuter.style.display = '';
+	});
 
 	const overlay = document.getElementById('split-overlay');
 	const circleSmall = document.getElementById('circle-small');
