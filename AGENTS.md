@@ -13,6 +13,7 @@
 ## Workflow
 
 - Write concise commit messages focusing on what changed.
+- Do not add a Co-Authored-By line. Author commits as the user, not as yourself.
 - Commit directly to main; skip pull requests.
 - Only create branches when explicitly requested or for work tree style agentic workflows.
 
