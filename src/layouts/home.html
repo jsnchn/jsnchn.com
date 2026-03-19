@@ -103,9 +103,19 @@ extends: base.html
 		transform: translate(-50%, -50%) scale(0.5);
 	}
 
-	.circle-ring {
-		border: 1px solid white;
+	.circle-inner {
+		width: 30px;
+		height: 30px;
+		border: 1.5px solid white;
 		transition: width 0.15s ease, height 0.15s ease;
+	}
+
+	.circle-outer {
+		width: 50px;
+		height: 50px;
+		border: 1px dotted white;
+		opacity: 0.4;
+		transition: width 0.2s ease, height 0.2s ease;
 	}
 
 	@media (hover: none) {
@@ -227,44 +237,27 @@ extends: base.html
 </main>
 <div class="split-overlay" id="split-overlay"></div>
 <div class="cursor-circle circle-small" id="circle-small"></div>
-<div id="cursor-rings"></div>
+<div class="cursor-circle circle-inner" id="circle-inner"></div>
+<div class="cursor-circle circle-outer" id="circle-outer"></div>
 <script>
 	const modal = document.getElementById('about-modal');
 
-	const overlay = document.getElementById('split-overlay');
-	const circleSmall = document.getElementById('circle-small');
-	const ringsContainer = document.getElementById('cursor-rings');
-
-	// Generate 22 concentric rings with varying styles
-	const rings = [];
-	const ringStyles = ['solid', 'dotted', 'dashed'];
-	for (let i = 0; i < 22; i++) {
-		const el = document.createElement('div');
-		el.className = 'cursor-circle circle-ring';
-		const size = 20 + 8 * i + 1.2 * i * i;
-		const t = i / 21; // 0..1
-		const opacity = 0.45 * Math.pow(1 - t, 1.6);
-		const borderWidth = Math.max(0.3, 1.5 - t * 1.2);
-		const style = ringStyles[i % 3];
-		el.style.width = size + 'px';
-		el.style.height = size + 'px';
-		el.style.opacity = opacity;
-		el.style.borderWidth = borderWidth + 'px';
-		el.style.borderStyle = style;
-		el.style.transitionDuration = (0.1 + t * 0.25) + 's';
-		ringsContainer.appendChild(el);
-		rings.push(el);
-	}
-
-	const allCircles = [circleSmall, ...rings];
-
 	modal.addEventListener('mouseleave', () => {
-		allCircles.forEach(c => c.style.display = '');
+		circleSmall.style.display = '';
+		circleInner.style.display = '';
+		circleOuter.style.display = '';
 	});
 
 	modal.addEventListener('close', () => {
-		allCircles.forEach(c => c.style.display = '');
+		circleSmall.style.display = '';
+		circleInner.style.display = '';
+		circleOuter.style.display = '';
 	});
+
+	const overlay = document.getElementById('split-overlay');
+	const circleSmall = document.getElementById('circle-small');
+	const circleInner = document.getElementById('circle-inner');
+	const circleOuter = document.getElementById('circle-outer');
 
 	let w = window.innerWidth;
 	let h = window.innerHeight;
@@ -283,12 +276,14 @@ extends: base.html
 	overlay.style.clipPath = getClipPath(w / 2, h / 2);
 
 	function moveCursors(x, y) {
-		const pos = x + 'px';
-		const posY = y + 'px';
-		for (const c of allCircles) {
-			c.style.left = pos;
-			c.style.top = posY;
-		}
+		const pos = `${x}px`;
+		const posY = `${y}px`;
+		circleSmall.style.left = pos;
+		circleSmall.style.top = posY;
+		circleInner.style.left = pos;
+		circleInner.style.top = posY;
+		circleOuter.style.left = pos;
+		circleOuter.style.top = posY;
 	}
 
 	window.addEventListener('mousemove', (e) => {
