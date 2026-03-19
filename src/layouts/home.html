@@ -236,7 +236,6 @@ extends: base.html
 <div class="cursor-circle circle-outer" id="circle-outer"></div>
 <script>
 	const modal = document.getElementById('about-modal');
-	let modalOpen = false;
 
 	modal.addEventListener('mouseenter', () => {
 		circleSmall.style.display = 'none';
@@ -245,20 +244,12 @@ extends: base.html
 	});
 
 	modal.addEventListener('mouseleave', () => {
-		if (!modalOpen) return;
 		circleSmall.style.display = '';
 		circleInner.style.display = '';
 		circleOuter.style.display = '';
 	});
 
-	const origShowModal = modal.showModal.bind(modal);
-	modal.showModal = function() {
-		modalOpen = true;
-		origShowModal();
-	};
-
 	modal.addEventListener('close', () => {
-		modalOpen = false;
 		circleSmall.style.display = '';
 		circleInner.style.display = '';
 		circleOuter.style.display = '';
@@ -297,10 +288,6 @@ extends: base.html
 	}
 
 	window.addEventListener('mousemove', (e) => {
-		if (modalOpen) {
-			moveCursors(e.clientX, e.clientY);
-			return;
-		}
 		overlay.style.clipPath = getClipPath(e.clientX, e.clientY);
 		moveCursors(e.clientX, e.clientY);
 	});
