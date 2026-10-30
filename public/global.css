@@ -74,7 +74,7 @@
 	h5,
 	h6 {
 		font-family: var(--font-heading);
-		font-variation-settings: "ELSH" 1;
+		font-variation-settings: "ELSH" 40;
 	}
 
 	p {
