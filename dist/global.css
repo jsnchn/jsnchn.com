@@ -1,8 +1,32 @@
+	@font-face {
+		font-family: "Geist";
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+		src: url("/fonts/Geist-Variable.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: "Geist Serif";
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+		src: url("/fonts/GeistSerifVF.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: "Geist Pixel";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/GeistPixelVF.woff2") format("woff2");
+	}
+
 	:root {
 		--cell-size: 20px;
-		--font-body: "Alegreya", serif;
-		--font-ui: "Alegreya Sans", sans-serif;
-		--font-heading: "Alegreya SC", serif;
+		--font-body: "Geist Serif", serif;
+		--font-ui: "Geist", sans-serif;
+		--font-heading: "Geist Pixel", sans-serif;
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -50,6 +74,7 @@
 	h5,
 	h6 {
 		font-family: var(--font-heading);
+		font-variation-settings: "ELSH" 40;
 	}
 
 	p {
