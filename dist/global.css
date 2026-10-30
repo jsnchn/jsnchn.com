@@ -1,12 +1,4 @@
 	@font-face {
-		font-family: "Geist";
-		font-style: normal;
-		font-weight: 100 900;
-		font-display: swap;
-		src: url("/fonts/Geist-Variable.woff2") format("woff2");
-	}
-
-	@font-face {
 		font-family: "Geist Serif";
 		font-style: normal;
 		font-weight: 100 900;
@@ -14,19 +6,11 @@
 		src: url("/fonts/GeistSerifVF.woff2") format("woff2");
 	}
 
-	@font-face {
-		font-family: "Geist Pixel";
-		font-style: normal;
-		font-weight: 400;
-		font-display: swap;
-		src: url("/fonts/GeistPixelVF.woff2") format("woff2");
-	}
-
 	:root {
 		--cell-size: 20px;
 		--font-body: "Geist Serif", serif;
-		--font-ui: "Geist", sans-serif;
-		--font-heading: "Geist Pixel", sans-serif;
+		--font-ui: var(--font-body);
+		--font-heading: var(--font-body);
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -74,7 +58,6 @@
 	h5,
 	h6 {
 		font-family: var(--font-heading);
-		font-variation-settings: "ELSH" 40;
 	}
 
 	p {
@@ -106,6 +89,15 @@
 		text-decoration: none;
 		border-bottom: 2px solid currentColor;
 		color: var(--text-color);
+	}
+
+	/* Anchors inline with paragraph copy inherit the paragraph's text styles */
+	p a {
+		font-family: inherit;
+		font-size: inherit;
+		font-weight: inherit;
+		font-style: inherit;
+		letter-spacing: inherit;
 	}
 	a:hover {
 		animation: shake 0.3s infinite ease-in-out;
