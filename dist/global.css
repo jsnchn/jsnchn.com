@@ -208,3 +208,11 @@
 			--cell-size: 10px;
 		}
 	}
+
+	@font-face {
+		font-family: "Redaction 100";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/Redaction100.woff2") format("woff2");
+	}
