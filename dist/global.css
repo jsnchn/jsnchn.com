@@ -6,9 +6,25 @@
 		src: url("/fonts/GeistSerifVF.woff2") format("woff2");
 	}
 
+	@font-face {
+		font-family: "Redaction 35";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/Redaction35.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: "Redaction";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/Redaction.woff2") format("woff2");
+	}
+
 	:root {
 		--cell-size: 20px;
-		--font-body: "Geist Serif", serif;
+		--font-body: "Redaction 35", "Geist Serif", serif;
 		--font-ui: var(--font-body);
 		--font-heading: var(--font-body);
 	}
@@ -64,8 +80,7 @@
 		font-family: var(--font-body);
 	}
 
-	button,
-	a {
+	button {
 		font-family: var(--font-ui);
 	}
 
@@ -86,18 +101,10 @@
 	a {
 		position: relative;
 		display: inline-block;
+		font-family: "Redaction", var(--font-body);
 		text-decoration: none;
 		border-bottom: 2px solid currentColor;
 		color: var(--text-color);
-	}
-
-	/* Anchors inline with paragraph copy inherit the paragraph's text styles */
-	p a {
-		font-family: inherit;
-		font-size: inherit;
-		font-weight: inherit;
-		font-style: inherit;
-		letter-spacing: inherit;
 	}
 	a:hover {
 		animation: shake 0.3s infinite ease-in-out;
