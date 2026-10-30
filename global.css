@@ -7,26 +7,90 @@
 	}
 
 	@font-face {
-		font-family: "Redaction 35";
+		font-family: "Redaction";
 		font-style: normal;
 		font-weight: 400;
 		font-display: swap;
-		src: url("/fonts/Redaction35.woff2") format("woff2");
+		src: url("/fonts/Redaction-Regular.woff2") format("woff2");
 	}
 
 	@font-face {
 		font-family: "Redaction";
 		font-style: normal;
+		font-weight: 700;
+		font-display: swap;
+		src: url("/fonts/Redaction-Bold.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: "Redaction";
+		font-style: italic;
 		font-weight: 400;
 		font-display: swap;
-		src: url("/fonts/Redaction.woff2") format("woff2");
+		src: url("/fonts/Redaction-Italic.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: "Redaction 10";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/Redaction_10-Regular.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: "Redaction 10";
+		font-style: normal;
+		font-weight: 700;
+		font-display: swap;
+		src: url("/fonts/Redaction_10-Bold.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: "Redaction 20";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/Redaction_20-Regular.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: "Redaction 35";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/Redaction_35-Regular.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: "Redaction 50";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/Redaction_50-Regular.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: "Redaction 70";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/Redaction_70-Regular.woff2") format("woff2");
+	}
+
+	@font-face {
+		font-family: "Redaction 100";
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url("/fonts/Redaction_100-Regular.woff2") format("woff2");
 	}
 
 	:root {
 		--cell-size: 20px;
-		--font-body: "Redaction 35", "Geist Serif", serif;
+		--font-body: "Redaction", "Geist Serif", serif;
 		--font-ui: var(--font-body);
-		--font-heading: var(--font-body);
+		--font-heading: "Redaction 10", var(--font-body);
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -101,14 +165,13 @@
 	a {
 		position: relative;
 		display: inline-block;
-		font-family: "Redaction", var(--font-body);
+		font-family: "Redaction 10", var(--font-body);
 		text-decoration: none;
 		border-bottom: 2px solid currentColor;
 		color: var(--text-color);
 	}
-	a:hover {
-		animation: shake 0.3s infinite ease-in-out;
-	}
+	/* Anchor font steps by cursor proximity — see /redaction-cursor.js.
+	   Hover animation (and the temporarily disabled shake) removed. */
 	a:before {
 		display: none;
 	}
